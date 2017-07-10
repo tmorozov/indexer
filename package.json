@@ -1,0 +1,22 @@
+{
+  "name": "indexer",
+  "version": "1.0.0",
+  "description": "require all JS files reqursively",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmorozov/indexer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmorozov/indexer/issues"
+  },
+  "homepage": "https://github.com/tmorozov/indexer#readme",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
+}
