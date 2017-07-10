@@ -2,12 +2,13 @@ const fs = require('fs')
 const path = require('path')
 const argv = require('minimist')(process.argv.slice(2))
 
-const excludeExt = ['.spec.js', '.css', '.scss', '.html']
+const excludeExt = ['_test.js', '.spec.js', '.css', '.scss', '.html']
 
 function containsExtentions (fileName, extList) {
-  return extList.filter(ext =>
-    fileName.indexOf(ext) === (fileName.length - ext.length)
-  ).length > 0
+  return extList.filter(ext => {
+    const index = fileName.indexOf(ext)
+    return index !== -1 && index === (fileName.length - ext.length)
+  }).length > 0
 }
 
 function createIndexFile (dir, fileList) {
