@@ -2,17 +2,20 @@ const fs = require('fs')
 const path = require('path')
 const argv = require('minimist')(process.argv.slice(2))
 
-const excludeExt = [
+const exludeDir = [
   'bower_components',
+  'scss'
+]
+
+const excludeExt = [
   'index.html',
   'index-async.html',
   '_test.js',
   '.spec.js',
-  // '.css',
   '.scss'
 ]
 
-function containsExtentions (fileName, extList) {
+function endsWith (fileName, extList) {
   return extList.filter(ext => {
     const index = fileName.indexOf(ext)
     return index !== -1 && index === (fileName.length - ext.length)
@@ -22,7 +25,9 @@ function containsExtentions (fileName, extList) {
 function createIndexFile (dir, fileList) {
   const indexContent = fileList
   .filter((fileName) => {
-    return fileName !== 'index.js' && !containsExtentions(fileName, excludeExt)
+    return fileName !== 'index.js' &&
+    !endsWith(fileName, excludeExt) &&
+    !endsWith(fileName, exludeDir)
   })
   .map((fileName) => `import '.${path.sep}${fileName}'\n`)
   .join('')
@@ -54,6 +59,10 @@ function walkDir (dir, onDir = processDir, onFile = (f) => {}) {
 
 // ignore hidden files/directories
   if (dir[0] === '.' && dir !== '.') {
+    return
+  }
+
+  if (endsWith(dir, exludeDir)) {
     return
   }
 

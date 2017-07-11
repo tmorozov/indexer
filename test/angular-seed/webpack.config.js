@@ -17,7 +17,16 @@ module.exports = {
       test: /\.css$/,
       use: [
         'style-loader',
-        'css-loader'
+        'css-loader?sourceMap',
+        'postcss-loader'
+      ]
+    }, {
+      test: /\.scss$/,
+      loaders: [
+        'style-loader',
+        'css-loader?sourceMap',
+        'postcss-loader?sourceMap',
+        'sass-loader?sourceMap'
       ]
     }]
   }
