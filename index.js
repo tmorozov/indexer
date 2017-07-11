@@ -2,7 +2,15 @@ const fs = require('fs')
 const path = require('path')
 const argv = require('minimist')(process.argv.slice(2))
 
-const excludeExt = ['_test.js', '.spec.js', '.css', '.scss', '.html']
+const excludeExt = [
+  'bower_components',
+  'index.html',
+  'index-async.html',
+  '_test.js',
+  '.spec.js',
+  // '.css',
+  '.scss'
+]
 
 function containsExtentions (fileName, extList) {
   return extList.filter(ext => {
