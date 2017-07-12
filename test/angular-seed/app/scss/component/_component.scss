@@ -1,3 +1,10 @@
 .view2 {
   border: 2px solid $red;
 }
+
+.cancel {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: no-repeat left/20px url("img/x-circle-icon-red.png");
+}
