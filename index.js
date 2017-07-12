@@ -29,7 +29,7 @@ function createIndexFile (dir, fileList) {
     !endsWith(fileName, excludeExt) &&
     !endsWith(fileName, exludeDir)
   })
-  .map((fileName) => `import '.${path.sep}${fileName}'\n`)
+  .map((fileName) => `require('.${path.sep}${fileName}')\n`)
   .join('')
 
   const ws = fs.createWriteStream(path.join(dir, 'index.js'))

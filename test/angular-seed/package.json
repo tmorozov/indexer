@@ -18,6 +18,7 @@
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
+    "ng-annotate-loader": "^0.6.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
     "protractor": "^4.0.9",
@@ -27,6 +28,8 @@
   },
   "scripts": {
     "bundle": "webpack",
+    "bundle-prod": "webpack -p",
+    "bundle-serve": "http-server -a localhost -p 8000 -c-1 ./dist",
     "postinstall": "bower install",
     "update-deps": "npm update",
     "postupdate-deps": "bower update",

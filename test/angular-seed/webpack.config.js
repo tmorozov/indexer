@@ -11,6 +11,9 @@ module.exports = {
   },
   module: {
     rules: [{
+      test: /app.*\.js$/,
+      use: [{ loader: 'ng-annotate-loader' }]
+    }, {
       test: /\.html$/,
       loader: 'angular-templatecache-loader?module=myApp'
     }, {
