@@ -6,4 +6,5 @@ tmp
 .DS_Store
 .idea
 
-dist/bundle.js
+dist/*
+!dist/index.html
